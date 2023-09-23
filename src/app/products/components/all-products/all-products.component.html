@@ -1,0 +1,15 @@
+<div class="container">
+    <!-- filter category -->
+    <h1 class="text-center fs-3 my-3">Products</h1>
+    <app-selected-category [title]="'Category'" [categories]="categorys" (categoryEvent)="filter($event)"></app-selected-category>
+    <!-- products card -->
+   <div class="row row-gap-5" *ngIf="!isLoaded">
+        <div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-10 offset-sm-2 curosr"  *ngFor="let product of products" >
+            <app-product [data]="product" (item)="addToCart($event)"></app-product>
+         </div>
+   </div>
+   <!-- spinner for loading -->
+   <div class="text-center d-flex align-items-center justify-content-center " *ngIf="isLoaded" style="height: 80vh;">
+        <app-spinner></app-spinner>
+   </div>
+</div>

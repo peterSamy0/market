@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row my-5" *ngIf="!isLoaded">
+        <div class="col-lg-6 col-md-10 offset-md-1 offset-lg-0">
+            <img *ngIf="product?.images" [src]="product.images[0]" alt="" class="border object-fit-cover mt-3 w-100">
+        </div>
+        <div class="col-lg-6 offset-lg-0 col-md-10 offset-md-1 mt-md-3 mt-lg-0 ">
+            <h3 class="text-center">{{product.title}}</h3>
+            <p><span class="text-success fw-bolder">Category: </span> {{product.category}}.</p>
+            <p><span class="text-success fw-bolder">Brand: </span> {{product.brand}}.</p>
+            <p><span class="text-success fw-bolder">Price: </span> {{product.price }} E.L</p>
+            <p><span class="text-success fw-bolder">Rating: </span> {{product.rating}}</p>
+            <p><span class="text-success fw-bolder d-block ">Deescription: </span> {{product.description}}.</p>
+            <p><span class="text-success fw-bolder">Discount: </span> {{product.discountPercentage}}%</p>
+            <button class="btn btn-primary" (click)="addToCart(product)">add to cart</button>
+        </div>
+    </div>
+     <!-- spinner for loading -->
+    <div class="text-center d-flex align-items-center justify-content-center " *ngIf="isLoaded" style="height: 80vh;">
+        <app-spinner></app-spinner>
+    </div>
+</div>

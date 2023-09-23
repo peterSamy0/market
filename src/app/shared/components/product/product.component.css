@@ -1,0 +1,13 @@
+img{
+    height: 150px;
+    object-fit: cover;
+}
+.price{
+    padding: 5px;
+    background-color: pink;
+    border-radius: 50%;
+}
+.parag{
+    max-height: 50px;
+    overflow: hidden;
+}

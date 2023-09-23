@@ -1,0 +1,47 @@
+<div class="container mt-3">
+    <div class="w-100 border-secondary-subtle p-2 border overflow-auto">
+        <h1 class="text-danger p-2">Shopping Cart</h1>
+        <p  class="text-secondary-emphasis px-2">you have {{cart.length}} items in your Cart</p>
+        <div class="d-flex justify-content-end container">
+            <button class="btn btn-outline-danger" (click)="clearCart()">Clear Cart</button>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">image</th>
+                <th scope="col" class="text-center">Name</th>
+                <th scope="col" class="text-center">Price</th>
+                <th scope="col" class="text-center">Quantity</th>
+                <th scope="col" class="text-center">Total</th>
+                <th scope="col" class="text-center"></th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr class="vertical-align-middle" *ngFor="let product of cart">
+                <th scope="row" class="align-middle text-center">
+                    <img [src]="product.images[0]" alt="img" style="width: 60px; height: 60px;" class="rounded-5 border">
+                </th>
+                <td class="align-middle text-center">{{product.title}}</td>
+                <td class="align-middle text-center">{{product.price}} L.E</td>
+                <td class="align-middle text-center">
+                    <button class="btn btn-success" (click)="inCQuantity(product)">+</button>
+                    <span class="align-self-center px-3">{{product.quantity}}</span>
+                    <button class="btn btn-danger" (click)="deCQuantity(product)">-</button>
+                </td>
+                <td class="align-middle text-center">{{product.quantity * product.price}} L.E</td>
+                <td class="align-middle text-center">
+                    <button type="button" class="btn btn-danger" (click)="removeItem(product)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th scope="col" class="text-start fs-4 align-middle"> <span class="text-danger fw-bolder p-0">Total Price:</span> {{totalPrice}} L.E</th>
+            </tfoot>
+          </table>
+    </div>
+</div>
